@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h4>{{ title }}</h4>
+</div>
+<a href="{% url "lesson1:index" %}">Вернуться к этому уроку</a><br>
+{% endblock content %}

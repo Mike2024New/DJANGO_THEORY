@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h4>{{ title }}</h4>
+  <form method='post'>
+    {% csrf_token %} <!--ДОБАВЛЯЕМ ЗАЩИТУ ОТ МЕЖСЕТЕВЫХ ЗАПРОСОВ-->
+    <input type="text" name="field_name" class="form-control  mb-3"> <!--ЭТО ПОЛЕ БУДЕТ ПРОЧИТАНО НА BACKEND СЕРВЕРЕ ПО КЛЮЧУ field_name-->
+    <input type="text" name="field_family" class="form-control  mb-3"> <!--ЭТО ПОЛЕ БУДЕТ ПРОЧИТАНО НА BACKEND СЕРВЕРЕ ПО КЛЮЧУ field_family-->
+    <button type="submit" class="btn btn-success">Отправить</button> <!--ИМЕННО КНОПКА TYPE SUBMIT ОТВЕЧАЕТ ЗА ОТПРАВКУ ДАННЫХ ФОРМЫ-->
+  </form>
+</div>
+{% endblock content %}

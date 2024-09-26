@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+  <h3>{{ title }}</h3>
+  {% for descr in descriptions %}
+  <div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+      <a href="{% url descr.url %}"><h4>{{ descr.name }}</h4></a>
+      <p>{{ descr.description }}</p>
+      <p>Приложение: <a href="{% url descr.url %}">{{ descr.app_name }}</a></p>
+    </div>
+  {% endfor %}
+{% endblock content %}

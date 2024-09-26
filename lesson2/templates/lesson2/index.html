@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h4>{{ title }}</h4>
+  <!--Ниже в url указаны тестовые параметры для примера-->
+  <a href="{% url "lesson2:index" %}?name=Ivan&age=28&city=Moscow"><p>тестовый get запрос с передачей параметров в url</p></a>
+</div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h4>{{ title }}</h4>
+  <p>Обращение по id, пример: <a href="{% url "lesson1:categories_by_id" cat_id=1000 %}">1000</a> (можно ввести любое число в url)</p>
+  <p>Обращение по regex, пример: <a href="{% url "lesson1:categories_by_regex" number=1000 %}">1000</a> (можно ввести любое 4-x значное число в url, подробнее см в коде)</p>
+  <p>Обращение по slug, пример: <a href="{% url "lesson1:categories_by_slug" cat_slug='test-cat1' %}">test-cat1</a> (можно ввести любое значение содержащее буквы лат алфавита, цифры и дефис)</p>
+  <p>Ввод строки в url, пример: <a href="{% url "lesson1:categories_by_path" cat_path='тест текст' %}">тест текст</a> (можно ввести любой набор символов кроме /)</p>
+  <p>Ввод пути в url, пример: <a href="{% url "lesson1:categories_by_path" cat_path='test/file/load/' %}">test/file/load/</a> (можно ввести любой путь в строку главное разделение с помощью /)</p>
+</div>
+{% endblock content %}

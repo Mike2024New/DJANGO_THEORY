@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block content %}
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h3>{{ title|capfirst }}</h3> <!--первая буква стала заглавной-->
+  <h5>Числовые фильтры:</h5>
+  <p>Фильтр add, на входe {{ number_1 }}, добавили 50 -> {{ number_1|add:"50" }}</p>
+  <!--divisibleby  проверяет делится ли делимое на число, возвращает True/False-->
+  <p>Фильтр divisibleby, число {{ number_2 }}, делится на 2 -> {{ number_2|divisibleby:"2" }}</p>
+  <p>Фильтр divisibleby, число {{ number_3 }}, делится на {{ num_3_div }} -> {{ number_2|divisibleby:num_3_div }}</p>
+</div>
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h5>Строковые фильтры:</h5>
+  <p>Фильтр upper, на входе {{ test_word_1 }} на выходе -> {{ test_word_1|upper }}</p>
+  <p>Фильтр lower, на входе {{ test_word_2 }} на выходе -> {{ test_word_2|lower }}</p>
+  <!--cut чем то похож на replace, но он просто удаляет часть строки а не заменяет-->
+  <p>Фильтр cut, на входе {{ test_word_3 }} на выходе -> {{ test_word_3|cut:"@123@" }}</p>
+  <!--в словаре передаваемых значений  test_word_999 отстутствует, поэтому вместо него 999-->
+  <p>Фильтр default, подстановка отстутствующего значения -> {{ test_word_999|default:"999" }}</p>
+  <!--в context(view) строка test_word_4 пустая поэтому вместо неё ___-->
+  <p>Фильтр default, подстановка вместо пустого значения -> {{ test_word_4|default:"___" }}</p>
+  <p>Фильтр default, нормальное отображение значения -> {{ test_word_5|default:"___" }}</p>
+  <p>Фильтр slugify, переводит строку в slug ->{{ test_word_6|slugify }}</p>
+  <p>Значение было отфильтровано внутри view.py -> {{ test_word_7}}</p>
+</div>
+<div class="shadow p-3 mb-4 mt-4 bg-white rounded"  style="border: 0.01px solid gray;">
+  <h5>Фильтры коллекций:</h5>
+  <p>Фильтр first, коллекция {{ test_collect_1 }}, 1 элемент ->  {{ test_collect_1|first }}</p>
+  <p>Фильтр last, коллекция {{ test_collect_1 }}, последний элемент ->  {{ test_collect_1|last }}</p>
+  <!--Фильтр join работает по аналгоии с python join-->
+  <p>Фильтр join, коллекция {{ test_collect_1 }}, объединение ->  {{ test_collect_1|join:" | " }}</p>
+  <p>Фильтр len, коллекция {{ test_collect_1 }}, длина коллекции -> {{ test_collect_1|length }}</p>
+
+
+
+  
+
+</div>
+{% endblock content %}
